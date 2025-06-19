@@ -13,6 +13,12 @@ const routes = [
     meta: { requiresAuth: false }
   },
   {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/views/Register.vue'),
+    meta: { requiresAuth: false }
+  },
+  {
     path: '/home',
     name: 'Home',
     component: () => import('@/views/Home.vue'),
@@ -40,8 +46,8 @@ router.beforeEach(async (to, from, next) => {
       next({ name: 'Login' });
       return;
     }
-  } else if (to.path === '/login') {
-    // 如果用户已登录且尝试访问登录页，重定向到首页
+  } else if (to.path === '/login' || to.path === '/register') {
+    // 如果用户已登录且尝试访问登录或注册页，重定向到首页
     const isLoggedIn = await checkLoginStatus();
     if (isLoggedIn) {
       next({ name: 'Home' });

@@ -28,6 +28,11 @@
       <div v-if="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>
+      <div class="link-group">
+        <router-link to="/register" class="register-link">
+          没有账号？点击注册
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -153,5 +158,20 @@ button:disabled {
   color: #f44336;
   text-align: center;
   margin-top: 16px;
+}
+
+.link-group {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.register-link {
+  color: #2196f3;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
 }
 </style>
