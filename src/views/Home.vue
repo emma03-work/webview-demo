@@ -2,7 +2,15 @@
   <div class="home-container">
     <h1>欢迎回来！</h1>
     <p>您已成功登录系统</p>
-    <button @click="handleLogout">退出登录</button>
+    
+    <div class="action-buttons">
+      <button @click="goToChangePassword" class="change-password-btn">
+        修改密码
+      </button>
+      <button @click="handleLogout" class="logout-btn">
+        退出登录
+      </button>
+    </div>
   </div>
 </template>
 
@@ -21,8 +29,13 @@ export default {
       router.push('/login');
     };
 
+    const goToChangePassword = () => {
+      router.push('/change-password');
+    };
+
     return {
-      handleLogout
+      handleLogout,
+      goToChangePassword
     };
   }
 }
@@ -47,18 +60,38 @@ p {
   color: #666;
 }
 
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 button {
-  padding: 10px 20px;
-  background-color: #f44336;
-  color: white;
+  padding: 12px 24px;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  min-width: 120px;
 }
 
-button:hover {
+.change-password-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+.change-password-btn:hover {
+  background-color: #1976d2;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.logout-btn:hover {
   background-color: #d32f2f;
 }
 </style>

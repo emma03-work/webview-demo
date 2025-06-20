@@ -35,3 +35,41 @@ export function checkLoginStatus() {
     resolve(!!token);
   });
 }
+
+/**
+ * 模拟修改密码API
+ * @param {string} currentPassword 当前密码
+ * @param {string} newPassword 新密码
+ * @returns {Promise<Object>} 修改结果
+ */
+export function changePassword(currentPassword, newPassword) {
+  return new Promise((resolve) => {
+    // 模拟网络请求延迟
+    setTimeout(() => {
+      // 检查是否已登录
+      const token = localStorage.getItem('token');
+      if (!token) {
+        resolve({
+          success: false,
+          message: '请先登录'
+        });
+        return;
+      }
+
+      // 模拟验证当前密码（这里简单假设当前密码是123456）
+      if (currentPassword === '123456') {
+        // 这里在实际项目中，您可能需要更新用户的密码信息
+        // 为了演示，我们只是返回成功消息
+        resolve({
+          success: true,
+          message: '密码修改成功'
+        });
+      } else {
+        resolve({
+          success: false,
+          message: '当前密码错误'
+        });
+      }
+    }, 1500); // 延迟1.5秒，模拟网络请求
+  });
+}
