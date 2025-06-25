@@ -8,7 +8,7 @@
           type="text"
           id="username"
           v-model="username"
-          placeholder="请输入用户名(不允许重复)"
+          placeholder="请输入用户名(不允许重复V2)"
         />
       </div>
       <div class="form-group">
