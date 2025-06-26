@@ -17,7 +17,7 @@
           type="password"
           id="newPassword"
           v-model="newPassword"
-          placeholder="请输入新密码"
+          placeholder="请输入新的密码"
         />
       </div>
       <div class="form-group">
