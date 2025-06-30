@@ -4,7 +4,13 @@ import { checkLoginStatus } from '@/api/auth';
 const routes = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/welcome'
+  },
+  {
+    path: '/welcome',
+    name: 'Welcome',
+    component: () => import('@/views/Welcome.vue'),
+    meta: { requiresAuth: false }
   },
   {
     path: '/login',
@@ -20,7 +26,7 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/login'
+    redirect: '/welcome'
   }
 ];
 
