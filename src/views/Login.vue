@@ -8,7 +8,7 @@
           type="text"
           id="username"
           v-model="username"
-          placeholder="请输入测试用户名"
+          placeholder="请输入用户名"
         />
       </div>
       <div class="form-group">
