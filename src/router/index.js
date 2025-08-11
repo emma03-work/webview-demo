@@ -4,7 +4,13 @@ import { checkLoginStatus } from '@/api/auth';
 const routes = [
   {
     path: '/',
-    redirect: '/login'
+    redirect: '/welcome'
+  },
+  {
+    path: '/welcome',
+    name: 'Welcome',
+    component: () => import('@/views/Welcome.vue'),
+    meta: { requiresAuth: false }
   },
   {
     path: '/login',
@@ -20,7 +26,7 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/login'
+    redirect: '/welcome'
   }
 ];
 
@@ -40,8 +46,8 @@ router.beforeEach(async (to, from, next) => {
       next({ name: 'Login' });
       return;
     }
-  } else if (to.path === '/login') {
-    // 如果用户已登录且尝试访问登录页，重定向到首页
+  } else if (to.path === '/login' || to.path === '/welcome') {
+    // 如果用户已登录且尝试访问登录页或欢迎页，重定向到首页
     const isLoggedIn = await checkLoginStatus();
     if (isLoggedIn) {
       next({ name: 'Home' });
