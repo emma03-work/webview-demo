@@ -1,6 +1,9 @@
 <template>
   <div class="login-container">
     <div class="login-box">
+      <div class="logo-container">
+        <img src="@/assets/logo.png" alt="Logo" class="logo" />
+      </div>
       <h2>用户登录</h2>
       <div class="form-group">
         <label for="username">用户名</label>
@@ -101,6 +104,17 @@ export default {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 h2 {
